@@ -1,0 +1,40 @@
+1. Model 1 : 규모가 작고 간단한 업무
+          request                         (Business) Model, JavaBean        CRUD
+  WB <-------------> jsp <-------> Dao(DTO를 통해 데이터를 전달) <--------> DB
+         request         
+
+2. Model2(MVC, Model View Controller) : 규모가 크고 복잡할 때, 가능한 한 jsp에서 java를 사용 안함
+           request      Controller                (Business) Model, JavaBean                                       CRUD
+  WB ----------------> Servlet <--------->  Service <----------->   Dao(DTO를 통해 데이터를 전달) <----------> DB  
+                                 | 어떤 Jsp 보여줄 것인지 정해서 출력
+                              VIew(jsp)
+3. divide and conquer
+   큰 프로그램을 쪼개서 분리
+4. 프로젝트 
+  관리자영역  - 전체자료를 사용하고 변경
+  사용자 영역 - 본인자료만 사용/변경
+  시스템관리 - 공통작업(보안, 권한, 등록)
+  결재 : 무통장 입금 - 스마트폰 결재, 카드 결재 : 결재 대행사(PG Payment Gateway)
+5. upload : Table에 직접 그림/음악 넣는 것은 복잡
+                특정 폴더에 그림/음악을 저장하고 table에는 저장된 파일 이름
+  enctype => encoding type 
+ <form method="post' enctype="multipart/form-data">
+   <input type="file" name="이름"> 파일을 선택할 수 있는 화면이 보임
+ MultipartRequest mr = new MultipartRequest(requst, saveDirectory, maxSize, "utf-8", 
+            new DefaultFileRenamePolicy());
+ String title = mr.getParameter("  ");
+ %. request => mr
+     jsp:setProperty를 사용 못함
+
+properties : 자바 9장 
+                 jsp 7장 
+map을 상속받은 Properties 클래스
+key,value           key=value
+확장자 .properties인 파일을 찾아서 Propertiew로 load할 때 사용
+ 
+gugu.do Gugu.java를 사용
+gugu.jsp 램덤한 구구단 출력
+
+home.do  Home.java
+home.jsp
+ img ioi.jpg width=100
